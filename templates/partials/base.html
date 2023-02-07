@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="images/png" href="{% static 'icons/favicon.png' %}"/> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'game.js' %}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<header>
+    <h1 style="font-family: Press Start 2P;">GuessGame.com</h1>
+    <nav>
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+</header>
+<body>
+    {% block content %}{% endblock %}
+</body>
+<footer>
+    <a href="https://github.com/your-username"><img src="{% static 'icons/github.png' %}" alt="GitHub" width="30"></a>
+    <a href="https://www.linkedin.com/in/your-username"><img src="{% static 'icons/linkedin.png' %}" alt="LinkedIn" width="60"></a>
+  </footer>
+
+</html>

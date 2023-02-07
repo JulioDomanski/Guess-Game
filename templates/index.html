@@ -1,0 +1,35 @@
+{% extends 'partials/base.html' %}
+{% block title %} GuessGame {% endblock %}
+
+{% block content %}
+<body>
+    
+    <div class="conteiner">
+        {% if game %}
+        <div id="guess-form">
+            <img class="game-img" src="{{ game.game_50px.url }}" width="400">
+        
+        
+        <form method="post" action="{% url 'check' id=game.id %}">
+            {% csrf_token %}
+            <input class="input-guess-game" list="games" type="text" name="guess" placeholder="Guess The Game" required>
+            <datalist id="games">
+                {% for game in games_list %}
+                    <option value="{{ game.name }}"></option>
+                {% endfor %}
+            </datalist>
+            <button class="guess-btn" type="submit">Submit</button>
+        </form>
+        </div>
+        
+        {% endif %}
+    <div id="message" style="display: none; padding: 8px;" ></div>
+    <div id="game-over" style="display: none;">
+        <a href="{% url 'index' %}">restart</a>
+    </div>
+    
+   
+    </div> 
+    
+</body>
+{% endblock %}
